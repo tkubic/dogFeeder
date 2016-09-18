@@ -1,0 +1,27 @@
+
+rule "mqtt publish feed"
+when
+	Item itm_dogF_feed received update
+then
+	publish("mymosquitto","dogFeederFeed",itm_dogF_feed.state.toString)
+	publish("mymosquitto","dogFeederCups1",itm_dogF_cups1.state.toString)
+	publish("mymosquitto","dogFeederCups2",itm_dogF_cups2.state.toString)
+end
+
+rule "Feed morning"
+when
+	Time cron "0 30 6 1/1 * ? *"
+then
+	publish("mymosquitto","dogFeederFeed","1")
+	publish("mymosquitto","dogFeederCups1","1.6")
+	publish("mymosquitto","dogFeederCups2","1.6")
+end
+
+rule "Feed afternoon"
+when
+	Time cron "0 0 18 1/1 * ? *"
+then
+	publish("mymosquitto","dogFeederFeed","1")
+	publish("mymosquitto","dogFeederCups1","1.6")
+	publish("mymosquitto","dogFeederCups2","1.6")
+end
