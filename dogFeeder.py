@@ -6,7 +6,7 @@ from grblCall import feed
 import paho.mqtt.subscribe as subscribe
 import time
 
-time.sleep(15)
+time.sleep(60)
 topics = ["dogFeederFeed", "dogFeederCups1", "dogFeederCups2"] #topics from openhab dogFeeder.rules
 dogFeederCups1 = 1
 dogFeederCups2 = 1
@@ -26,5 +26,6 @@ while 1:
                 print("dogFeederCups2 is " + dogFeederCups2)
 
     feed(dogFeederCups1, dogFeederCups2)
+    print(dogFeederCups1 + " " + dogFeederCups2)
     time.sleep(10)
     print("ready")

@@ -16,9 +16,10 @@ def feed(cups1, cups2):
     #print(ser.read(30))		#expeced 'ok' from GRBL
     ser.write('G1 X' .encode())	#move by 'X' at feedrate 'F'
     ser.write(cups1 .encode())
-    ser.write('Y' .encode())
-    ser.write(cups2 .encode())
-    ser.write('F15\r' .encode())
+    #ser.write('Y' .encode())
+    #ser.write(cups2 .encode())
+    ser.write('F5\r' .encode())
+    print(cups1 + " " + cups2)
     ser.close
    
 #dogFeederCups1 = '1'
