@@ -1,0 +1,15 @@
+sitemap demo label="Main"
+{
+	Frame {
+                Text label="Back Yard" icon="terrace" {
+                        Frame label="Dog Feeder" {
+                                Switch item=itm_dogF_feed label="Feed Dogs" mappings=[ON=Feed]
+				Setpoint item=itm_dogF_cups1 icon="pie" minValue=0.2 maxValue=2 step=0.2
+				Setpoint item=itm_dogF_cups2 label="cups2 [%.1f]" minValue=0.2 maxValue=2 step=0.2
+				Text item=itm_dogF_motion1
+				Text item=itm_dogF_motion2
+				Text item=itm_dogF_foodLeft1
+				Text item=itm_dogF_foodLeft2
+				Chart item=dogFeeder service=rrd4j period=h refresh=10000
+			}
+		}

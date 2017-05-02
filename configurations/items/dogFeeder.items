@@ -1,0 +1,11 @@
+Group dogFeeder
+Number itm_dogF_number "test2 [%.1f Inch]" (ALL) {mqtt="<[mymosquitto:dogFeederNumber:state:default]"}
+Contact itm_dogF_contact "Dog Feeder Contact [%s]" (ALL) {mqtt="<[mymosquitto:dogFeederContact:state:default]"}
+Switch itm_dogF_feed
+Number itm_dogF_cups1 "feeder 1 cups [%.1f]"
+Number itm_dogF_cups2 "feeder 2 cups [%.1f]"
+Number itm_setpoint "setpoint test [%.1f]"
+Switch itm_dogF_motion1 "Motion at bowl 1 [%s]" {mqtt="<[mymosquitto:dogFeederMotion1:command:ON:1],<[mymosquitto:dogFeederMotion1:command:OFF:0]"}
+Switch itm_dogF_motion2 "Motion at bowl 2 [%s]" {mqtt="<[mymosquitto:dogFeederMotion2:command:ON:1],<[mymosquitto:dogFeederMotion2:command:OFF:0]"}
+Number itm_dogF_foodLeft1 "Feed left in 1 [%.1f]" (dogFeeder) {mqtt="<[mymosquitto:dogFeederFoodLeft1:state:default]"}
+Number itm_dogF_foodLeft2 "Feed left in 2 [%.1f]" (dogFeeder) {mqtt="<[mymosquitto:dogFeederFoodLeft2:state:default]"}
